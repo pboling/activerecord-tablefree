@@ -31,7 +31,7 @@ Gem::Specification.new do |gem|
   #  gem.add_development_dependency("rails") # This is in the appraisal gemfiles
   gem.add_development_dependency('sqlite3', '~> 1')
 
-  gem.add_development_dependency('appraisal', '~> 1')
+  gem.add_development_dependency('appraisal', '~> 2')
   gem.add_development_dependency('aruba', '~> 0')
   gem.add_development_dependency('cucumber', '~> 3')
   gem.add_development_dependency('rspec', '~> 3')
