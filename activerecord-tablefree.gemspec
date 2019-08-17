@@ -42,7 +42,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency('gem-release', '~> 2')
   gem.add_development_dependency('listen', '~> 3')
   gem.add_development_dependency('nokogiri', '~> 1.0')
-  gem.add_development_dependency('rails', '~> 5')
+  gem.add_development_dependency('rails', '~> 6')
   gem.add_development_dependency('wwtd', '~> 1')
 
   #  gem.add_development_dependency('launchy', '~> 2.1')
