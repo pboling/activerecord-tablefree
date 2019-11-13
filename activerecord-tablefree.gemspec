@@ -26,7 +26,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('activerecord', '~> 5.0', '>= 5.0.0')
 
   gem.add_development_dependency('bundler', '~> 1')
-  gem.add_development_dependency('rake', '~> 12', '> 0')
+  gem.add_development_dependency('rake', '~> 13', '> 0')
 
   #  gem.add_development_dependency("rails") # This is in the appraisal gemfiles
   gem.add_development_dependency('sqlite3', '~> 1')
