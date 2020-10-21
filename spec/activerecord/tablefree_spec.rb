@@ -8,6 +8,7 @@ def make_tablefree_model(database = nil, nested = nil)
     column :id, :integer
     column :name, :string
     column :not_nullable, :integer, 1, false
+    column :wooden, :boolean
     #{if nested
         '
         has_many :arm_rests
@@ -52,9 +53,12 @@ shared_examples_for 'an active record instance' do
   it { should respond_to :name= }
   it { should respond_to :update_attributes }
   describe '#attributes=' do
-    before(:example) { subject.attributes = ({ name: 'Jarl Friis' }) }
+    before(:example) { subject.attributes = ({ name: 'Jarl Friis', wooden: 'false' }) }
     it 'assign attributes' do
       expect(subject.name).to eq 'Jarl Friis'
+    end
+    it 'type casts booleans' do
+      expect(subject.wooden).to eq false
     end
   end
 end
@@ -266,7 +270,15 @@ describe 'ActiveRecord with real database' do
     FileUtils.mkdir_p 'tmp'
     ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'tmp/test.db')
     ActiveRecord::Base.connection.execute('drop table if exists chairs')
-    ActiveRecord::Base.connection.execute('create table chairs (id INTEGER PRIMARY KEY, name TEXT )')
+    class CreateChairs < ActiveRecord::Migration[5.0]
+      def self.up
+        create_table :chairs do |t|
+          t.column :name, :string
+          t.column :wooden, :boolean, default: false, null: false
+        end
+      end
+    end
+    CreateChairs.new.up
 
     class Chair < ActiveRecord::Base
     end

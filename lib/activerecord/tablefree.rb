@@ -78,7 +78,7 @@ module ActiveRecord
         @columns_hash.each do |name, column|
           define_attribute(
             name,
-            connection.lookup_cast_type_from_column(column),
+            column.sql_type_metadata,
             default: column.default,
             user_provided_default: false
           )
