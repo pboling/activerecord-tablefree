@@ -33,7 +33,7 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency('appraisal', '~> 2')
   gem.add_development_dependency('aruba', '~> 0')
-  gem.add_development_dependency('cucumber', '~> 5')
+  gem.add_development_dependency('cucumber', '~> 7')
   gem.add_development_dependency('rspec', '~> 3')
   gem.add_development_dependency('rspec-collection_matchers', '~> 1')
 
